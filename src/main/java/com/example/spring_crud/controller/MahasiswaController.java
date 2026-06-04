@@ -15,7 +15,7 @@ public class MahasiswaController {
         this.mahasiswaService = mahasiswaService;
     }
 
-    // get semua data
+    // Get
     @GetMapping
     public List<Mahasiswa> getAllMahasiswa(){
         return mahasiswaService.getAllMahasiswa();
@@ -26,14 +26,14 @@ public class MahasiswaController {
         return mahasiswaService.save(mahasiswa);
     }
 
-    // GET detail data
+    // Get by id
     @GetMapping("/{id}")
     public Mahasiswa getById(@PathVariable Long id) {
         return mahasiswaService.getMahasiswaById(id)
                 .orElseThrow(() -> new RuntimeException("Data tidak ditemukan"));
     }
 
-    // PUT update data
+    // Put
     @PutMapping("/{id}")
     public Mahasiswa update(
             @PathVariable Long id,
@@ -42,7 +42,7 @@ public class MahasiswaController {
         return mahasiswaService.update(id, mahasiswa);
     }
 
-    // DELETE data
+    // Delete
     @DeleteMapping("/{id}")
     public String delete(@PathVariable Long id) {
         mahasiswaService.delete(id);
